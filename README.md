@@ -10,3 +10,7 @@ Lightweight Kuwo music downloader written in C#.
 1. Run the program
 2. Enter the music ID
 3. The track will be downloaded automatically
+
+# Todo:
+- Move all files into a subfolder (/kuwo/kuwo/) instead of directly into /kuwo/*
+- Store music files in the user's default Music folder
