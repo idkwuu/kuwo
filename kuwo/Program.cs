@@ -34,7 +34,7 @@ class Program
             Console.Write("[SYS]: Enter the music ID: ");
             id = Console.ReadLine();
 
-            Console.Write("[SYS]: Enter the filename:");
+            Console.Write("[SYS]: Enter the filename: ");
             filename = Console.ReadLine();
         }
         else
@@ -47,7 +47,7 @@ class Program
         string fullPath = Path.GetFullPath(file);
 
         // URL
-        string url = $"http://antiserver.kuwo.cn/anti.s?format={format}&rid=MUSIC_{id}";
+        string url = $"http://antiserver.kuwo.cn/anti.s?format={format}&rid=MUSIC_{id}&type=convert_url&response=res";
 
         Console.WriteLine("[SYS]: URL: " + url);
         Console.WriteLine("[SYS]: File: " + fullPath);
