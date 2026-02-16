@@ -19,4 +19,5 @@ Download the release from [here](https://github.com/idkwuu/kuwo/releases/tag/1.0
 - ~~Move all files into a subfolder (/kuwo/kuwo/) instead of directly into /kuwo/*~~
 - Store music files in the user's default Music folder
 - Clean-up in `Program.cs`
-- Change music format 
+- Changeable music format
+- Improve code structure
