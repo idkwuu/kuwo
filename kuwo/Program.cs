@@ -1,36 +1,20 @@
 ﻿using System;
 using System.IO;
-using System.Net.Http;
 using System.Threading.Tasks;
-using System.Diagnostics;
 
 class Program
 {
     static async Task Main(string[] args)
     {
-
-        // ASCII: 
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine(@"
- ██ ▄█▀ █    ██  █     █░ ▒█████  
- ██▄█▒  ██  ▓██▒▓█░ █ ░█░▒██▒  ██▒
-▓███▄░ ▓██  ▒██░▒█░ █ ░█ ▒██░  ██▒
-▓██ █▄ ▓▓█  ░██░░█░ █ ░█ ▒██   ██░
-▒██▒ █▄▒▒█████▓ ░░██▒██▓ ░ ████▓▒░
-▒ ▒▒ ▓▒░▒▓▒ ▒ ▒ ░ ▓░▒ ▒  ░ ▒░▒░▒░ 
-░ ░▒ ▒░░░▒░ ░ ░   ▒ ░ ░    ░ ▒ ▒░ 
-░ ░░ ░  ░░░ ░ ░   ░   ░  ░ ░ ░ ▒  
-░  ░      ░         ░        ░ ░  
-                                  ");
+        Ascii.ASCII();
 
         string id;
         string filename;
-        string format = "mp3"; // Standard one
+        string format = "mp3";
 
-        // Arguments: 
         if (args.Length < 2)
         {
-            Console.ForegroundColor = ConsoleColor.White; // Change color back to white
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("[SYS]: Enter the music ID: ");
             id = Console.ReadLine();
 
@@ -46,40 +30,17 @@ class Program
         string file = $"{filename}.{format}";
         string fullPath = Path.GetFullPath(file);
 
-        // URL
-        string url = $"http://antiserver.kuwo.cn/anti.s?format={format}&rid=MUSIC_{id}&type=convert_url&response=res";
+        string url = URLString.Build(id, format);
 
         Console.WriteLine("[SYS]: URL: " + url);
         Console.WriteLine("[SYS]: File: " + fullPath);
 
-        try
-        {
-            using HttpClient client = new HttpClient();
-            var response = await client.GetAsync(url);
+        bool success = await task.DownloadAsync(url, fullPath);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("[SYS]: Download failed: " + response.StatusCode);
-            }
-            else
-            {
-                byte[] data = await response.Content.ReadAsByteArrayAsync();
-                await File.WriteAllBytesAsync(fullPath, data);
-                Console.WriteLine("[SYS]: Download completed!");
-
-                // Open the folder
-                Process.Start(new ProcessStartInfo()
-                {
-                    FileName = "explorer.exe",
-                    Arguments = $"/select,\"{fullPath}\"",
-                    UseShellExecute = true
-                });
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("Error: " + ex.Message);
-        }
+        if (success)
+            Console.WriteLine("[SYS]: Download completed!"); // open explorer .....
+        else
+            Console.WriteLine("[SYS]: Download failed.");
 
         Console.ReadKey(true);
     }
