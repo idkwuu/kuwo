@@ -22,3 +22,4 @@ Download the release from [here](https://github.com/idkwuu/kuwo/releases/tag/1.0
 - Changeable music format
 - ~~Improve code structure~~
 - Implement multiple ID parsing for music input
+- Implement user-defined output directory selection for music downloads
