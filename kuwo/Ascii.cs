@@ -16,7 +16,7 @@ public static class Ascii
 ░ ░░ ░  ░░░ ░ ░   ░   ░  ░ ░ ░ ▒  
 ░  ░      ░         ░        ░ ░  
                                   ");
-        // 
+        // Nothing, just a space.
         Console.WriteLine(""); 
     }
 }
