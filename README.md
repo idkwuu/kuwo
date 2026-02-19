@@ -20,4 +20,5 @@ Download the release from [here](https://github.com/idkwuu/kuwo/releases/tag/1.0
 - Store music files in the user's default Music folder
 - Clean-up in `Program.cs`
 - Changeable music format
-- Improve code structure
+- ~~Improve code structure~~
+- Implement multiple ID parsing for music input
