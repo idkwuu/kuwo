@@ -13,7 +13,7 @@ class Program
         Ascii.ASCII();
 
         string id;
-        string filename;
+        string filename; // TODO: Will be automatic, if possible.
         string format = "mp3"; // Feature: Changeable music format
 
         if (args.Length < 2)
@@ -42,6 +42,7 @@ class Program
         bool success = await task.DownloadAsync(url, fullPath);
 
         if (success)
+            {
             Console.WriteLine("[SYS]: Download successful! Launching File Explorer..."); // open explorer .....
         else
             Console.ForegroundColor = ConsoleColor.DarkRed;
