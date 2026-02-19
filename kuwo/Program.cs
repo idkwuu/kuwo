@@ -42,11 +42,14 @@ class Program
         bool success = await task.DownloadAsync(url, fullPath);
 
         if (success)
-            {
+        {
             Console.WriteLine("[SYS]: Download successful! Launching File Explorer..."); // open explorer .....
+        }
         else
+        {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("[SYS]: Download failed.");
+        }
 
         Console.ReadKey(true);
     }
