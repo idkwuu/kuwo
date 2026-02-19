@@ -21,3 +21,4 @@ Download the release from [here](https://github.com/idkwuu/kuwo/releases/tag/1.0
 - Clean-up in `Program.cs`
 - Changeable music format
 - ~~Improve code structure~~
+- Implement multiple ID parsing for music input
