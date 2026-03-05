@@ -15,12 +15,12 @@ Lightweight Kuwo music downloader written in C#.
 # How to use: 
 Download the release from [here](https://github.com/idkwuu/kuwo/releases/tag/1.0), unzip it, and run `kuwo.exe`.
 
-# Todo:
-- ~~Move all files into a subfolder (/kuwo/kuwo/) instead of directly into /kuwo/*~~
-- Store music files in the user's default Music folder
-- Clean-up in `Program.cs`
-- Changeable music format
-- ~~Improve code structure~~
-- Implement multiple ID parsing for music input
-- Implement user-defined output directory selection for music downloads
-- Implement JSON config parsing for bulk ID downloads
+# TODO
+- [x] Move all files into a subfolder (`/kuwo/kuwo/`) instead of directly into `/kuwo/` (done)
+- [ ] Store music files in the user's default Music folder
+- [ ] Clean up `Program.cs`
+- [ ] Make music format changeable
+- [x] Improve code structure (done)
+- [ ] Implement multiple ID parsing for music input
+- [ ] Allow user-defined output directory selection for music downloads
+- [ ] Implement JSON config parsing for bulk ID downloads
