@@ -34,6 +34,12 @@ class Program
         string file = $"{filename}.{format}";
         string fullPath = Path.GetFullPath(file);
 
+        // Get the user's default Music folder
+        string musicFolder = Environment.GetFolderPath(Environment.SpecialFolder.MyMusic);
+
+        // Combine Music folder with filename
+        fullPath = Path.Combine(musicFolder, file);
+
         string url = URLString.Build(id, format);
 
         Console.WriteLine("[SYS]: URL: " + url);
@@ -43,7 +49,7 @@ class Program
 
         if (success)
         {
-            Console.WriteLine("[SYS]: Download successful! Launching File Explorer..."); // open explorer .....
+            Console.WriteLine("[SYS]: Download successful! Launching File Explorer...");
         }
         else
         {

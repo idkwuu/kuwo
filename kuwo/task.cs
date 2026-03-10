@@ -17,8 +17,11 @@ public static class task
                 return false;
 
             byte[] data = await response.Content.ReadAsByteArrayAsync();
+
+            // Write downloaded music file
             await File.WriteAllBytesAsync(fullPath, data);
 
+            // Open File Explorer and select the downloaded file
             Process.Start(new ProcessStartInfo()
             {
                 FileName = "explorer.exe",
